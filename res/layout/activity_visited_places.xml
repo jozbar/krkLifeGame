@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="hello"
+    />
+</LinearLayout>
+
+ <!-- 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.krklifegame.GameMenu" >
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="jakies miejsce"
+        android:textColor="#FFBF00" />
+
+     <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_below="@+id/tvName"
+        android:text="Zwany Kopcem Niepodległości, największy ze wszystkich. Zajmuje 0,76 ha powierzchni, ma 35 m wysokości, średnica podstawy wynosi 111 m. Usypano go na wzgórzu Sowiniec (358 m n.p.m.) w Lesie Wolskim. Prace rozpoczęto 6 sierpnia 1934 r., w 20. rocznicę wymarszu z Krakowa 1. Kompanii Kadrowej Legionów, a zakończono 9 lipca 1937. Po II wojnie światowej komunistyczne władze celowo dopuściły do dewastacji kopca. Jego naprawą zajął się, powołany w 1980 r., komitet opieki nad kopcem." />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvDescription"
+        android:background="@drawable/kopiec_pilsudskiego" />
+
+</RelativeLayout>
+ -->
