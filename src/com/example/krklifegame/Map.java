@@ -2,23 +2,19 @@ package com.example.krklifegame;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Map extends Activity {
 
-	long placeId;
+	int placeId;
 	SQLiteDatabase db;
 	Double latitude, longitude;
 	String name;
@@ -30,7 +26,7 @@ public class Map extends Activity {
 	      setContentView(R.layout.activity_map);
 	      
 	      Intent intent = getIntent();
-	      placeId = intent.getLongExtra("id", 0);
+	      placeId = intent.getIntExtra("id", 0);
 	      
 	      try {
 				initializeMap();
@@ -46,7 +42,7 @@ public class Map extends Activity {
 		}
 		  googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		  googleMap.setMyLocationEnabled(true);
-		  setCoordinates(placeId);
+		  getPlace(placeId);
 		  LatLng latLng = new LatLng(latitude, longitude);		  
 		  
 		  int strokeColor = 0xffff0000; //red outline
@@ -57,28 +53,18 @@ public class Map extends Activity {
 		  googleMap.addCircle(circleOptions);
 	}
 
-	private void setCoordinates(long _id) {
-		try{  	
-	    	DataBaseHelper dbHelper = new DataBaseHelper(this.getApplicationContext());
-	    	db = dbHelper.getWritableDatabase();
-	    	String sql ="SELECT Name, Latidute, Longtidute FROM Places WHERE _id = " + _id;
-	    	Cursor mCur  = db.rawQuery(sql, null);
-	    	
-	    	if (mCur != null){
-	    		do{
-	    			name = PlacesAdapter.getColumnValue(mCur, "Name");	    			
-	    			latitude = PlacesAdapter.getColumnDoubleValue(mCur, "Latidute");
-	    			longitude = PlacesAdapter.getColumnDoubleValue(mCur, "Longtidute");	    				    		
-	    		} while (mCur.moveToNext());
-	    	}
-    	}catch(SQLException se){
-    		Log.e(getClass().getSimpleName(), "Could not create or Open the Database");
-    	}finally{
-    		if (db != null){
-    			db.close();
-    		}
-    	}		
+	
+	public void getPlace(int id){
+		DataBaseHelper dbHelper = new DataBaseHelper(this.getApplicationContext());
+		String sql ="SELECT Name, Latidute, Longtidute FROM Places WHERE _id=?" ;
+    	Place myPlace = dbHelper.getMyPlace(sql, id);    
+    	
+    	name = myPlace.getPlaceName();
+    	latitude = myPlace.getLatidute();
+    	longitude = myPlace.getLongtidute();
+    	
 	}
+	
 	   
 	   
 }

@@ -6,11 +6,11 @@ public class Place {
 	String _placeName;
 	String _placeDescription;
 	double _latidute, _longtidute;
-	boolean _visited;
+	int _visited;
 	
 	public Place(){}
 	
-	public Place(int id, String placeName, String placeDescription, double latidute, double longtidute, boolean visited){
+	public Place(int id, String placeName, String placeDescription, double latidute, double longtidute, int visited){
 		this._id = id;
 		this._placeName = placeName;
 		this._placeDescription = placeDescription;
@@ -19,7 +19,7 @@ public class Place {
 		this._visited = visited;
 	}
 	
-	public Place(String placeName, String placeDescription, double latidute, double longtidute, boolean visited){
+	public Place(String placeName, String placeDescription, double latidute, double longtidute, int visited){
 		this._placeName = placeName;
 		this._placeDescription = placeDescription;
 		this._latidute = latidute;
@@ -43,6 +43,14 @@ public class Place {
 		this._placeName = placeName;
 	}
 	
+	public void setPlaceDescription(String placeDescription){
+		this._placeDescription = placeDescription;
+	}
+	
+	public String getPlaceDescription(){
+		return this._placeDescription;
+	}
+	
 	public double getLatidute(){
 		return this._latidute;
 	}
@@ -59,10 +67,10 @@ public class Place {
 		this._longtidute = longtidute;
 	}
 	
-	public boolean getVisited(){
+	public int getVisited(){
 		return this._visited;
 	}
-	public void setVisited(boolean visited){
+	public void setVisited(int visited){
 		this._visited = visited;
 	}
 	
