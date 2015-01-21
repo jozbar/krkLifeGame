@@ -168,5 +168,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		
 		return placesList;
 	}
+	
+	public int getCount(String sql){
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		Cursor myCursor = db.rawQuery(sql, null);
+		myCursor.moveToFirst();
+		int count = myCursor.getInt(0);
+		return count;
+	}
+	
+	public void zerosVisited(){
+		String sql = "UPDATE Places SET Visited = 0 WHERE Visited = 1";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor myCursor = db.rawQuery(sql, null);
+		myCursor.moveToFirst();
+	}
 
 }

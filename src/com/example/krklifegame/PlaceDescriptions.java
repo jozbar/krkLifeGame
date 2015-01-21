@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class PlaceDescriptions extends Activity {
     	Place myPlace = dbHelper.getMyPlace(sql, id);    	
     	tvPlaceName.setText(myPlace.getPlaceName());
     	tvDescription.setText(myPlace.getPlaceDescription());
+    	tvDescription.setMovementMethod(new ScrollingMovementMethod());
     	String getPlace = "a" + id;
 
     	ivPhoto.setImageResource(getResources().getIdentifier(getPlace, "drawable", getPackageName()));

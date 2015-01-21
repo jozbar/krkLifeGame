@@ -468,25 +468,30 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f02005b;
     }
     public static final class id {
-        public static final int action_settings=0x7f060022;
+        public static final int action_settings=0x7f060027;
         public static final int book_now=0x7f060010;
-        public static final int btnShowOnMap=0x7f06001c;
+        public static final int btnShowOnMap=0x7f060021;
+        public static final int btnStop=0x7f06001d;
+        public static final int btnTrack=0x7f06001c;
         public static final int button1=0x7f060016;
         public static final int button2=0x7f060017;
         public static final int button3=0x7f060018;
         public static final int button4=0x7f060019;
         public static final int button5=0x7f06001a;
+        public static final int button6=0x7f060023;
+        public static final int button7=0x7f060024;
+        public static final int button8=0x7f060025;
+        public static final int button9=0x7f060026;
         public static final int buyButton=0x7f06000a;
         public static final int buy_now=0x7f06000f;
         public static final int buy_with_google=0x7f06000e;
         public static final int classic=0x7f060011;
         public static final int grayscale=0x7f060012;
-        public static final int gridView1=0x7f060021;
         public static final int holo_dark=0x7f060005;
         public static final int holo_light=0x7f060006;
         public static final int hybrid=0x7f060004;
         public static final int imageView1=0x7f06001f;
-        public static final int listView1=0x7f060020;
+        public static final int listView1=0x7f060022;
         public static final int map=0x7f06001b;
         public static final int match_parent=0x7f06000c;
         public static final int monochrome=0x7f060013;
@@ -500,8 +505,8 @@ containing a value of this type.
         public static final int terrain=0x7f060003;
         public static final int textView1=0x7f060015;
         public static final int textView2=0x7f060014;
-        public static final int tvDescription=0x7f06001e;
-        public static final int tvPlaceName=0x7f06001d;
+        public static final int tvDescription=0x7f060020;
+        public static final int tvPlaceName=0x7f06001e;
         public static final int wrap_content=0x7f06000d;
     }
     public static final class integer {
@@ -534,8 +539,8 @@ containing a value of this type.
         public static final int visited_places=0x7f0a000a;
     }
     public static final class string {
-        public static final int action_settings=0x7f040022;
-        public static final int app_name=0x7f040020;
+        public static final int action_settings=0x7f040023;
+        public static final int app_name=0x7f040021;
         public static final int auth_client_needs_enabling_title=0x7f040001;
         public static final int auth_client_needs_installation_title=0x7f040002;
         public static final int auth_client_needs_update_title=0x7f040003;
@@ -631,17 +636,18 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f04001e;
-        public static final int hello_world=0x7f040021;
-        public static final int title_activity_about=0x7f04002c;
-        public static final int title_activity_game_menu=0x7f040024;
-        public static final int title_activity_game_options_panel=0x7f040023;
-        public static final int title_activity_map=0x7f040026;
-        public static final int title_activity_place_descriptions=0x7f04002a;
-        public static final int title_activity_points=0x7f040027;
-        public static final int title_activity_prizes=0x7f040028;
-        public static final int title_activity_quiz=0x7f04002b;
-        public static final int title_activity_unvisited_places=0x7f040025;
-        public static final int title_activity_visited_places=0x7f040029;
+        public static final int hello_world=0x7f040022;
+        public static final int latitude_longitude=0x7f040020;
+        public static final int title_activity_about=0x7f04002d;
+        public static final int title_activity_game_menu=0x7f040025;
+        public static final int title_activity_game_options_panel=0x7f040024;
+        public static final int title_activity_map=0x7f040027;
+        public static final int title_activity_place_descriptions=0x7f04002b;
+        public static final int title_activity_points=0x7f040028;
+        public static final int title_activity_prizes=0x7f040029;
+        public static final int title_activity_quiz=0x7f04002c;
+        public static final int title_activity_unvisited_places=0x7f040026;
+        public static final int title_activity_visited_places=0x7f04002a;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

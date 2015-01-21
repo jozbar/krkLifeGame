@@ -1,61 +1,64 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.krklifegame.GameOptionsPanel" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_marginTop="49dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#00FF00"
         android:text="1-day option"
-        android:onClick="goToGameMenuWithOneDayOption" />
+        android:onClick="goToGameMenuWithOneDayOption"
+         />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignRight="@+id/button3"
-        android:layout_below="@+id/button1"
-        android:text="2-day option"
-        android:onClick="goToGameMenuWithTwoDayOption" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#00FFCC"
+        android:onClick="goToGameMenuWithTwoDayOption"
+        android:text="2-day option" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignRight="@+id/button4"
-        android:layout_below="@+id/button2"
-        android:text="3-day option"
-        android:onClick="goToGameMenuWithThreeDayOption" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#CCFF00"
+        android:onClick="goToGameMenuWithThreeDayOption"
+        android:text="3-day option" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_alignRight="@+id/button5"
-        android:layout_below="@+id/button3"
-        android:text="Week option"
-        android:onClick="goToGameMenuWithWeekOption" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#9900FF"
+        android:onClick="goToGameMenuWithWeekOption"
+        android:text="Week option" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:text="Without time restriction"
-        android:onClick="goToGameMenuWithoutTimeRestrictions" />
-
-</RelativeLayout>
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#FF6600"
+        android:onClick="goToGameMenuWithoutTimeRestrictions"
+        android:text="Without time restriction" />   
+    
+</LinearLayout>

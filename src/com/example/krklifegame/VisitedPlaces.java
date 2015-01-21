@@ -51,7 +51,6 @@ public class VisitedPlaces extends ListActivity {
 	
 	public void displayResultList() {
 		TextView tvNew = new TextView(this);
-		tvNew.setText("This data is retrieved from database");
 		final ListView lv = getListView();
 		lv.addHeaderView(tvNew);
 		lv.setTextFilterEnabled(true);

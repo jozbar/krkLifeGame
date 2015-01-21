@@ -12,42 +12,54 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 public class GPSTracker extends Service implements LocationListener{
-
-	private final Context mContext;
-	
-	boolean isGPSEnabled = false;
-	boolean isNetworkEnabled = false;
-	boolean canGetLocation = false;
-	
-	Location location;
-	double latitude;
-	double longitude;
-	
-	private static final long MIN_DISTANCE_FOR_UPDATES = 10; // 10 meters
-	private static final long MIN_TIME_BW_UPDATES = 1000 * 60 *1; // 1 minute
-	
-	protected LocationManager locationManager;
-	
-	public GPSTracker(Context context) {
-		this.mContext = context;
-		getLocation();
-	}
+	 private final Context mContext;
+	 
+	    // flag for GPS status
+	    boolean isGPSEnabled = false;
+	 
+	    // flag for network status
+	    boolean isNetworkEnabled = false;
+	 
+	    boolean canGetLocation = false;
+	 
+	    Location location; // location
+	    double latitude; // latitude
+	    double longitude; // longitude
+	 
+	    // The minimum distance to change Updates in meters
+	    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1; // 10 meters
+	 
+	    // The minimum time between updates in milliseconds
+	    private static final long MIN_TIME_BW_UPDATES = 1000; // * 60 * 1; // 1 minute
+	 
+	    // Declaring a Location Manager
+	    protected LocationManager locationManager;
+	 
+	    public GPSTracker(Context context) {
+	        this.mContext = context;
+	        getLocation();
+	    }
 	
 	public Location getLocation() {
 		try{
 			locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
 			//getting GPS status
-			isGPSEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-			
+			isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+			isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+			System.out.println("isGPSENABLED: " + isGPSEnabled);
+			System.out.println("isNetowrkEnabled: " + isGPSEnabled);
 			if(!isGPSEnabled && !isNetworkEnabled) {
+				System.out.println("Wszystkjo powyloczane");
 				//no network provider is enabled
 			} else {
 				this.canGetLocation = true;
 				// first get location from Network Provider
 				if (isNetworkEnabled) {
-					locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_FOR_UPDATES, this);
+					System.out.println("siecWlaczona");
+					locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
 					Log.d("Network", "Network");
 					if (locationManager != null) {
 						location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -59,8 +71,9 @@ public class GPSTracker extends Service implements LocationListener{
 				}
 				//if GPS enabled get lat/long using GPS Services
 				if(isGPSEnabled){
+					System.out.println("gps wlaczony");
 					if (location == null){
-						locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_FOR_UPDATES, this);
+						locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
 						Log.d("GPS Enabled", "GPS Enabled");
 						if(locationManager != null) {
 							latitude = location.getLatitude();
@@ -131,10 +144,32 @@ public class GPSTracker extends Service implements LocationListener{
 		}
 	}
 	
+//	@Override
+//	protected void onResume() {
+//		super.onResume();
+//		setUpLocationClientIfNeeded();
+//		location.connect();
+//	}
+//	
+//	@Override // 
+//	protected void onPause() {
+//		super.onPause();
+//		if (location != null) {
+//            location.disconnect();
+//        }		
+//	}
+//	
+//	@Override
+//	public void onConnected(Bundle arg0) {
+// 		location.requestLocationUpdates( REQUEST, this);  // LocationListener	
+//		
+//	}
+	
 	@Override
-	public void onLocationChanged(Location arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onLocationChanged(Location location) {
+//		latitude = location.getLatitude();
+//        longitude = location.getLongitude();
+//        Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + "\nLong: " , Toast.LENGTH_SHORT).show();		
 	}
 
 	@Override
